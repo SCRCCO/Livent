@@ -1,20 +1,38 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React from 'react';
+import { View, Text, Image, StyleSheet, Dimensions } from 'react-native';
 
-export default function App() {
+const CenteredImageAndText = () => {
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
+      <Image
+        source="./assets/src/livent-high-resolution-logo.png" // Replace with your image URL
+        style={styles.image}
+      />
+      <Text style={styles.text}>Viva la fica</Text>
     </View>
   );
-}
+};
+
+const windowWidth = Dimensions.get('window').width;
+const windowHeight = Dimensions.get('window').height;
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
     justifyContent: 'center',
+    alignItems: 'center',
+  },
+  image: {
+    width: windowWidth * 0.8, // Adjust as needed
+    height: windowHeight * 0.3, // Adjust as needed
+    resizeMode: 'contain',
+    marginBottom: 20,
+  },
+  text: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    textAlign: 'center',
   },
 });
+
+export default CenteredImageAndText;
